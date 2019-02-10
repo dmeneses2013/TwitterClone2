@@ -1,0 +1,45 @@
+.search-results {
+  border: 1px solid black;
+  width: 600px;
+  height: 200px;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    background-color: lightblue;
+  }
+
+  img {
+    position: absolute;
+    top: 16px;
+    left: 12px;
+    height: 120px;
+    width: 104px;
+  }
+  h1 {
+    position: absolute;
+    top: -8px;
+    left: 126px;
+    color: black;
+  }
+  h2 {
+    position: absolute;
+    top: 28px;
+    left: 126px;
+    color: black;
+  }
+  h4 {
+    position: absolute;
+    top: 124px;
+    left: 14px;
+    padding-right: 10px;
+    text-align: left;
+    line-height: 22px;
+    color: black;
+  }
+
+  a {
+    z-index: 999;
+  }
+
+}
