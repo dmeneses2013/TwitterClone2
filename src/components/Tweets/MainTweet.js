@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
 
-import TweetBox from "./Tweetbox"
-import TweetList from "./TweetList"
-
-class MainTweet extends React.Component {
+export default class MainTweet extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {tweetList: []};
+        this.state = {tweetList: [{"id": "1", "content": "Heyyyy", "user_id": "12" }]};
     }
 
     formattedTweets(tweetList) {
@@ -40,10 +36,55 @@ class MainTweet extends React.Component {
     render() {
         return (
            <div className="container">
-               <TweetBox sendTweet={this.addTweet.bind(this)}/>
-               <TweetList tweets={this.state.tweetList} />
+             <TweetBox sendTweet={this.addTweet.bind(this)}/>
+              <TweetList tweets={this.state.tweetList} />
            </div>
         )
     }
 }
-export default MainTweet;
+
+
+class TweetBox extends Component {
+
+    sendTweet(event) {
+        event.preventDefault();
+        this.props.sendTweet(this.refs.tweetTextArea.value);
+        this.refs.tweetTextArea.value = '';
+    }
+
+    render(){
+        return (
+            <div className="row">
+                <form onSubmit={this.sendTweet.bind(this)}>
+                    <div className="input-field">
+                        <textarea ref="tweetTextArea" className="textarea" />
+                        <label>What's happening?</label>
+                        <button type="submit"  className="btn right">Tweet</button>
+                    </div>
+                </form>
+            </div>
+        )
+    }
+}
+
+const TweetList = (props) => {
+    let tweets = this.props.tweetList.map(tweet => <Tweets key={tweet.id} {...tweet} />);
+    return (
+       <div>
+         <ul className="collection">
+          {tweets}
+         </ul>
+       </div>
+    )
+}
+
+const Tweets = (props) =>  {
+    return (
+        <li className="collection-item image">
+            <img className="circle" src={this.props.image} />
+            <span className="title">{this.props.firstname}</span>
+            <time>{this.props.tweets}</time>
+            <p>{this.props.container}</p>
+        </li>
+    )
+}

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
-class TweetBox extends React.Component {
-    
+export default class TweetBox extends Component {
+
     sendTweet(event) {
         event.preventDefault();
         this.props.sendTweet(this.refs.tweetTextArea.value);
@@ -24,5 +24,3 @@ class TweetBox extends React.Component {
         )
     }
 }
-
-export default TweetBox;

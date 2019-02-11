@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import TweetList from "./TweetList";
-class Tweets extends React.Component {
+import TweetBox from './TweetBox';
+
+export default class Tweets extends React.Component {
     render() {
         return (
             <li className="collection-item image">
@@ -14,4 +16,3 @@ class Tweets extends React.Component {
         )
     }
 }
-export default Tweets;
