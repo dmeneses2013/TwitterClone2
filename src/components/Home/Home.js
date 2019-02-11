@@ -6,7 +6,9 @@ export default class Search extends Component {
   constructor() {
     super();
     this.state = {
-      users: [{"name":'Daniel', "image": "https://www.catster.com/wp-content/uploads/2018/07/Savannah-cat-long-body-shot.jpg", "handle": 'Dmoney', "profile": 'This file should contain all the record creation needed to seed the database with its default values.'}]
+      users: [{"name":'Daniel', "image": "https://www.catster.com/wp-content/uploads/2018/07/Savannah-cat-long-body-shot.jpg", "handle": 'Dmoney', "profile": 'This file should contain all the record creation needed to seed the database with its default values.'
+
+      }]
     }
   }
 
@@ -55,9 +57,13 @@ const VeritcleListItems = (props) => {
 const TweetObject = (props) => {
   let user = props.users;
   return (
-    <div>
-      <div>User Name</div>
-      <div>User Pic</div>
-    </div>
-  )
+
+      <div>
+        <div>User Name</div>
+        <div>User Pic</div>
+      </div>
+    
+
+
+)
 }
