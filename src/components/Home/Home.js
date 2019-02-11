@@ -28,36 +28,8 @@ export default class Search extends Component {
 
     return(
       <div>
-        <VeritcleListItems users={this.state.users} />
       </div>
     );
   }
 
-}
-
-const VeritcleListItems = (props) => {
-  return props.users.map( (result) =>
-  <div class="profile-preview">
-  <h3>{result.name}</h3>
-  <h3>{result.handle}</h3>
-  <img src="https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png"></img>
-  <h4> {result.profile}</h4>
-
-  </div>
-
-
-  )
-}
-
-
-
-
-const TweetObject = (props) => {
-  let user = props.users;
-  return (
-    <div>
-      <div>User Name</div>
-      <div>User Pic</div>
-    </div>
-  )
 }

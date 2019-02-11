@@ -6,13 +6,7 @@ export default class Search extends Component {
 
   constructor() {
     super();
-    this.state = {
-      query: '',
-      results: []
-    }
-  }
-
-  componentDidMount() {
+    this.state = {results: []}
   }
 
   componentDidUpdate(prevState) {
@@ -28,7 +22,7 @@ export default class Search extends Component {
   performSearch = (props) => {
     axios.get('http://localhost:3001/users', {
       params: {
-        query: {props}
+        "firstname": props
         }
       })
       .then(res => {
@@ -37,15 +31,11 @@ export default class Search extends Component {
       })
   }
 
-  handleSearchResultClick = (props) => {
-    // Save query and results to local cache
-  }
-
   render() {
     return(
       <div>
         <SearchField onSubmit={this.performSearch} />
-        {this.state.results.map( (props) => <SearchResults key={props.id} results={props} onClick={this.handleSearchResultClick} />)}
+        {this.state.results.map( (props) => <SearchResult key={props.id} results={props} onClick={this.handleSearchResultClick} />)}
       </div>
     );
   }
@@ -57,9 +47,7 @@ class SearchField extends Component {
 
   constructor() {
     super();
-    this.state = {
-      query: '',
-    }
+    this.state = { query: ''}
   }
 
   handleInput = (e) => {
@@ -81,35 +69,16 @@ class SearchField extends Component {
   }
 }
 
-class SearchResults extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      userid: '',
-    }
+const SearchResult = (props) => {
+  return (
+   <a href={'#/users/' + props.results.id}>
+    <div className="search-results" onClick={props.onClick}>
+      <h1>{props.results.handle}</h1>
+      <h2>{props.results.firstname} {props.results.lastname}</h2>
+      <img src={props.results.image}></img>
+      <h4> {props.results.profile}</h4>
+     </div>
+    </a>
+    )
   }
-
-  componentDidMount() {
-    this.setState({userid: this.props.results.id});
-  }
-
-  handleClick = (e) => {
-    this.props.onClick(this.state.userid);
-  }
-
-  render() {
-    return (
-        <a href={'#/users/' + this.props.results.id}>
-        <div className="search-results" onClick={this.handleClick}>
-          <h1>{this.props.results.handle}</h1>
-          <h2>{this.props.results.firstname} {this.props.results.lastname}</h2>
-          <img src={this.props.results.image}></img>
-          <h4> {this.props.results.profile}</h4>
-        </div>
-        </a>
-      );
-  }
-
-
-}
