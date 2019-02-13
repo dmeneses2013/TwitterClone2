@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import LogoutButton from '../Login/Logout.js';
 
 export default class Search extends Component {
 
@@ -28,6 +29,7 @@ export default class Search extends Component {
 
     return(
       <div>
+        <LogoutButton />
       </div>
     );
   }

@@ -4,7 +4,7 @@ import axios from 'axios';
 export default class MainTweet extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {tweetList: [{"id": "1", "content": "Heyyyy", "user_id": "12" }]};
+        this.state = {tweetList: []};
     }
 
     formattedTweets(tweetList) {
@@ -81,7 +81,7 @@ const TweetList = (props) => {
 const Tweets = (props) =>  {
     return (
         <li className="collection-item image">
-            <img className="circle" src={this.props.image} />
+            <img className="circle" src={this.props.image} alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png" />
             <span className="title">{this.props.firstname}</span>
             <time>{this.props.tweets}</time>
             <p>{this.props.container}</p>

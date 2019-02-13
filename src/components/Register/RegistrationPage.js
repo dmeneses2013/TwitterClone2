@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class LoginPage extends Component {
+export default class RegistrationPage extends Component {
 
   constructor() {
     super();
@@ -31,7 +31,7 @@ export default class LoginPage extends Component {
       password: e.password
     }, axiosConfig)
     .then(function (response) {
-      console.log(response);
+      localStorage.setItem("auth-token", response.jwt)
     })
     .catch(function (error) {
       console.log(error);
@@ -41,17 +41,18 @@ export default class LoginPage extends Component {
   render() {
     return(
       <div>
-        <LoginForm onSubmit={this.handleSubmit}/>
+        <RegistrationForm onSubmit={this.handleSubmit}/>
+        <h1>Or sign in</h1>
       </div>
     );
   }
 }
 
-class LoginForm extends Component {
+class RegistrationForm extends Component {
 
   constructor() {
     super();
-    this.state = { email: '', password: ''}
+    this.state = { firstname: '', lastname: '', handle: '', email: '', password: ''}
   }
 
   handleInput = (e) => {
@@ -66,6 +67,9 @@ class LoginForm extends Component {
   render() {
     return(
       <form onSubmit={ this.handleSubmit }>
+        <input placeholder="Handle" name='handle' required onInput={ this.handleInput }/>
+        <input placeholder="Firstname" name='firstname' required onInput={ this.handleInput }/>
+        <input placeholder="Lastname" name='lastname' required onInput={ this.handleInput }/>
         <input placeholder="Email" name='email' required onInput={ this.handleInput }/>
         <input placeholder="Password" name='password' required onInput={ this.handleInput } protected="true"/>
         <input type="submit" value="Search" />

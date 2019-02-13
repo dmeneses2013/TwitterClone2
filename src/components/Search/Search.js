@@ -10,6 +10,7 @@ export default class Search extends Component {
   }
 
   componentDidUpdate(prevState) {
+    console.log(localStorage.getItem('auth-token'));
     if (this.state.results !== prevState.results) {
       this.diplayResults();
     }
@@ -20,11 +21,20 @@ export default class Search extends Component {
   }
 
   performSearch = (props) => {
+    console.log("Local cookie is:" + localStorage.getItem("auth-token"))
+    let token = localStorage.getItem('auth-token');
+    let axiosConfig = {
+      headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+          "Access-Control-Allow-Origin": "*",
+          "Authorization" : `Bearer ${token}`
+      }
+    };
     axios.get('http://localhost:3001/users', {
       params: {
         "firstname": props
         }
-      })
+      }, axiosConfig)
       .then(res => {
         const results = res.data;
         this.setState({ results });
@@ -76,7 +86,7 @@ const SearchResult = (props) => {
     <div className="search-results" onClick={props.onClick}>
       <h1>{props.results.handle}</h1>
       <h2>{props.results.firstname} {props.results.lastname}</h2>
-      <img src={props.results.image}></img>
+      <img src={props.results.image} alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png"></img>
       <h4> {props.results.profile}</h4>
      </div>
     </a>

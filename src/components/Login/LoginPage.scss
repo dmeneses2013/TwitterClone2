@@ -1,0 +1,30 @@
+.login-form{
+  margin: 0 auto;
+  width: 600px;
+  height: 400px;
+  margin-top: 200px;
+  border: solid red 1px;
+
+  form {
+    margin-top: 180px;
+    margin-bottom: 12px;
+  }
+
+  input {
+    position: relative; left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    width: 70%;
+    height: 30px;
+    border: solid red 1px;
+    font-size: 18px;
+  }
+
+  #submit {
+    width: 40%;
+  }
+  a{
+    position: relative; left: 43%;
+    border: solid red 1px;
+  }
+}
