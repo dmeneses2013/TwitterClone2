@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import LogoutButton from '../Login/Logout.js';
+import MainTweet from '../Tweets/MainTweet';
 
 export default class Search extends Component {
 
@@ -12,11 +13,7 @@ export default class Search extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:3001/test_users`)
-      .then(res => {
-        const users = res.data;
-        this.setState({ users });
-      })
+
     }
 
   componentDidUpdate(prevState) {
@@ -30,6 +27,7 @@ export default class Search extends Component {
     return(
       <div>
         <LogoutButton />
+        <MainTweet />
       </div>
     );
   }
