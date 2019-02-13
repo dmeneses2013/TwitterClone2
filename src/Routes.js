@@ -9,6 +9,7 @@ import UserProfile from './components/UserProfile/UserProfile';
 import LoginPage from './components/Login/LoginPage';
 import Register from './components/Register/RegistrationPage'
 import  { Redirect } from 'react-router-dom';
+import Likes from './components/Likes/Likes';
 
 class ProtectedRoute extends Component {
 
@@ -88,6 +89,8 @@ const Routes = (
       <UsedRoute exact path="/register" component={ Register } />
       <ProtectedRoute exact path="/search" component={ Search } />
       <ProtectedRoute exact path="/users/:id" component={ UserProfile } />
+        <ProtectedRoute exact path="/layout" component={ Layout } />
+
     </div>
   </Router>
 );

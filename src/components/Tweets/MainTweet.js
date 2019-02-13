@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Likes from '../Likes/Likes';
 
 export default class MainTweet extends React.Component {
     constructor(props) {
@@ -94,10 +95,11 @@ const Tweets = (props) =>  {
   console.log()
     return (
         <li className="collection-item image">
-            <img className="circle" src={props.image} alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png" />
-            <span className="title">{props.firstname}</span>
-            <time>{props.tweets}</time>
-            <p>{props.container}</p>
+            <img className="circle" src={props.user.image} alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png" />
+            <span className="title">{props.user.firstname}</span>
+            <time>{props.created_at}</time>
+            <p>{props.content}</p>
+            <Likes />
         </li>
     )
 }
