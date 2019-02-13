@@ -1,31 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import NewTweet from './NewTweet';
 
 export default class MainTweet extends React.Component {
     constructor(props) {
         super(props);
         this.state = {tweetList: []};
-    }
-
-    formattedTweets(tweetList) {
-        let formattedList = tweetList.map(tweet => {
-            tweet = (tweet.created_at).newDate();
-            return tweet;
-        });
-        return {
-            tweetList: formattedList
-        };
-    }
-
-    addTweet(tweetToAdd) {
-      let url = 'http://localhost:3001/tweets';
-      axios.post(url, { content: tweetToAdd })
-          .then( savedTweet => {
-              let newTweetList = this.state.tweetList;
-              newTweetList.unshift(savedTweet);
-              this.setState(this.formattedTweets(newTweetList));
-          })
-          .error(error => console.log((error)));
     }
 
     componentDidMount(){
@@ -48,39 +28,15 @@ export default class MainTweet extends React.Component {
     render() {
         return (
            <div className="container">
-             <TweetBox sendTweet={this.addTweet.bind(this)}/>
+             <NewTweet />
              <TweetList tweets={this.state.tweetList} />
-\           </div>
-        )
-    }
-}
-
-
-class TweetBox extends Component {
-
-    sendTweet(event) {
-        event.preventDefault();
-        this.props.sendTweet(this.refs.tweetTextArea.value);
-        this.refs.tweetTextArea.value = '';
-    }
-
-    render(){
-        return (
-            <div className="row">
-                <form onSubmit={this.sendTweet.bind(this)}>
-                    <div className="input-field">
-                        <textarea ref="tweetTextArea" className="textarea" />
-                        <label>What's happening?</label>
-                        <button type="submit"  className="btn right">Tweet</button>
-                    </div>
-                </form>
-            </div>
+          </div>
         )
     }
 }
 
 const TweetList = (props) => {
-    let tweets = props.tweets.map(tweet => <Tweets key={tweet.id} {...tweet} />);
+    let tweets = props.tweets.slice(0).reverse().map(tweet => <Tweets key={tweet.id} {...tweet} />);
     return (
        <div>
          <ul className="collection">
@@ -91,13 +47,13 @@ const TweetList = (props) => {
 }
 
 const Tweets = (props) =>  {
-  console.log()
+    console.log(props)
     return (
         <li className="collection-item image">
-            <img className="circle" src={props.image} alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png" />
-            <span className="title">{props.firstname}</span>
+            <img className="circle" src="https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png" alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png" />
+              <span className="title">{props.firstname}</span>
             <time>{props.tweets}</time>
-            <p>{props.container}</p>
+            <p>{props.content}</p>
         </li>
     )
 }

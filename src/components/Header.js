@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Proptypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import '../index.css';
 import Search from './Search/Search';

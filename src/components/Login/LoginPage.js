@@ -31,12 +31,36 @@ export default class LoginPage extends Component {
       }}, axiosConfig)
       .then(response => {
         localStorage.setItem("auth-token", response.data.jwt);
-        console.log(localStorage.getItem('auth-token'));
-        window.location = './'
+        this.saveUserToLocal(e);
       })
     .catch(function (error) {
       console.log(error);
     });
+  }
+
+  saveUserToLocal = (e) => {
+    let user = {}
+    let token = localStorage.getItem('auth-token');
+    let url = `http://localhost:3001/user`;
+    let axiosConfig = {
+      headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+          "Access-Control-Allow-Origin": "*",
+          "Authorization" : `Bearer ${token}`
+      }
+    };
+    let params = {
+      params: {
+        "email": e.email
+        }
+    }
+    axios.get(url,params,axiosConfig)
+      .then(res => {
+        let user = JSON.stringify(res.data)
+        console.log(user)
+        localStorage.setItem("current-user", user);
+        window.location = '/';
+      })
   }
 
   render() {

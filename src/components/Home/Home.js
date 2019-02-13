@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import LogoutButton from '../Login/Logout.js';
 import MainTweet from '../Tweets/MainTweet';
+import NewTweet from '../Tweets/NewTweet';
 
 export default class Search extends Component {
 
