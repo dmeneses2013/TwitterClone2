@@ -31,7 +31,7 @@ export default class UserProfile extends Component {
       <div>
         <h1>User Profile</h1>
         <h2>{this.state.user.firstname} {this.state.user.lastname}</h2>
-        <img src={this.state.user.image}></img>
+        <img src={this.state.user.image} alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png"></img>
       </div>
     );
   }
