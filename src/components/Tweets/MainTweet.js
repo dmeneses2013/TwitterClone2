@@ -50,12 +50,16 @@ const TweetList = (props) => {
 const Tweets = (props) =>  {
     console.log(props)
     return (
+        <div>
         <li className="collection-item image">
-            <img className="circle" src={props.user.image} alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png" />
+            <a href={'#/users/' + props.user.id}>
+              <img className="circle" src={props.user.image} alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png" />
+            </a>
             <span className="title">{props.user.firstname}</span>
             <time>{props.created_at}</time>
             <p>{props.content}</p>
             <Likes />
         </li>
+      </div>
     )
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import NavBar from '../Navbar';
 
 export default class UserProfile extends Component {
 
@@ -38,6 +39,8 @@ export default class UserProfile extends Component {
   render() {
     return(
       <div>
+        <NavBar />
+      <div>
         <div>
           <h1>User Profile</h1>
           <h2>{this.state.user.firstname} {this.state.user.lastname}</h2>
@@ -47,6 +50,7 @@ export default class UserProfile extends Component {
           <TweetList tweets={this.state.user.tweets} />
         </div>
       </div>
+    </div>
     );
   }
 }

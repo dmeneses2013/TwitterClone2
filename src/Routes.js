@@ -10,6 +10,7 @@ import LoginPage from './components/Login/LoginPage';
 import Register from './components/Register/RegistrationPage'
 import  { Redirect } from 'react-router-dom';
 import Likes from './components/Likes/Likes';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 class ProtectedRoute extends Component {
 
@@ -89,8 +90,7 @@ const Routes = (
       <UsedRoute exact path="/register" component={ Register } />
       <ProtectedRoute exact path="/search" component={ Search } />
       <ProtectedRoute exact path="/users/:id" component={ UserProfile } />
-        <ProtectedRoute exact path="/layout" component={ Layout } />
-
+      <ProtectedRoute exact path="/layout" component={ Layout } />
     </div>
   </Router>
 );
