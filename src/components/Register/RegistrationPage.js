@@ -100,7 +100,7 @@ class RegistrationForm extends Component {
               <td><input id="passwordInput"  placeholder="Password" name='password' required onInput={ this.handleInput } protected="true"/></td>
             </tr>
           </table>
-        <input  id="submitButton" type="submit" value="Search" />
+        <input  id="submitButton" type="submit" value="Submit" />
       </form>
 
       </div>

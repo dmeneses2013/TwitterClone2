@@ -101,7 +101,7 @@ class LoginForm extends Component {
                 <input placeholder="Password" name='password' type="password" required onInput={ this.handleInput } protected="true"/>
                 <input id="submit" type="submit" value="Submit" />
               </form>
-              <Link to="/register">Or Register</Link>
+              <Link to="/register">Register</Link>
             </div>
       </div>
     );
