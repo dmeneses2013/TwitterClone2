@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './Search.scss';
+import queryString from 'query-string';
+import NavBar from '../Navbar';
 
 export default class Search extends Component {
 
   constructor() {
     super();
-    this.state = {results: []}
+    this.state = {
+      query: '',
+      results: []}
   }
 
-  componentDidUpdate(prevState) {
-    console.log(localStorage.getItem('auth-token'));
-    if (this.state.results !== prevState.results) {
-      this.diplayResults();
-    }
+  componentDidMount() {
+    let query = queryString.parse(this.props.location.search)
+    this.setState({query: query.firstname })
+    this.performSearch(query.firstname)
   }
 
-  diplayResults = () => {
-     this.state.results.map( (result) => <li>{result}</li> )
-  }
 
   performSearch = (props) => {
-    console.log("Local cookie is:" + localStorage.getItem("auth-token"))
     let token = localStorage.getItem('auth-token');
     let axiosConfig = {
       headers: {
@@ -44,7 +43,7 @@ export default class Search extends Component {
   render() {
     return(
       <div>
-        <SearchField onSubmit={this.performSearch} />
+        <NavBar />
         {this.state.results.map( (props) => <SearchResult key={props.id} results={props} onClick={this.handleSearchResultClick} />)}
       </div>
     );
@@ -88,6 +87,7 @@ const SearchResult = (props) => {
       <h2>{props.results.firstname} {props.results.lastname}</h2>
       <img src={props.results.image} alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png"></img>
       <h4> {props.results.profile}</h4>
+      <h1>Hi</h1>
      </div>
     </a>
     )

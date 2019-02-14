@@ -3,6 +3,7 @@ import axios from 'axios';
 import LogoutButton from '../Login/Logout.js';
 import MainTweet from '../Tweets/MainTweet';
 import NewTweet from '../Tweets/NewTweet';
+import NavBar from '../Navbar';
 
 export default class Search extends Component {
 
@@ -27,7 +28,7 @@ export default class Search extends Component {
 
     return(
       <div>
-        <LogoutButton />
+        <NavBar />
         <MainTweet />
       </div>
     );
