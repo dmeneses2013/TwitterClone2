@@ -9,15 +9,12 @@ import LoginPage from './components/Login/LoginPage';
 import Register from './components/Register/RegistrationPage'
 import  { Redirect } from 'react-router-dom';
 import Likes from './components/Likes/Likes';
-import moment from 'moment';
-import PropTypes from 'prop-types';
+
+
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import JavascriptTimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
-library.add(faHeart);
+
 
 JavascriptTimeAgo.locale(en);
 
