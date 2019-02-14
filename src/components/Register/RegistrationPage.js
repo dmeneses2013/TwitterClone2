@@ -64,6 +64,11 @@ class RegistrationForm extends Component {
 
   render() {
     return(
+     <div>
+       <div id="leftSide">
+              <img src="https://thewritelife.com/wp-content/uploads/2013/11/Twitter_wink.png" alt=""></img>
+        </div>
+
       <form className="RegForm" onSubmit={ this.handleSubmit }>
           <div>
           <h1>Sign Up</h1>
@@ -97,6 +102,8 @@ class RegistrationForm extends Component {
           </table>
         <input  id="submitButton" type="submit" value="Search" />
       </form>
+
+      </div>
     );
   }
 }

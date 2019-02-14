@@ -1,9 +1,9 @@
 .RegForm{
-    margin-left: 40%;
+    // margin-left: 40%;
     max-width: 480px;
     text-align: center;
-    margin-top: 10%;
-
+    margin: 10% 0px;
+    display: inline-block;
     h1{
         display: inline-block;
     }
@@ -18,13 +18,13 @@
         display: inline-block;
         width: 350px;
         height: 30px;
-        padding: 5px;
-        margin: 5px;
+        padding: 15px;
+        margin: 10px;
         border-radius: 5px;
     }
 
     input[type=submit] { 
-        padding-bottom: 25px;
+        padding-bottom: 30px;
         background:#227dde; 
         color: white;
         font-size: 15px;
@@ -40,9 +40,30 @@ td:first-child{
 }
 
 
+#leftSide{
+    display: inline-block;
+    width: 40%;
+    height: 40%;
+      
+      img{
+          width: 50%;
+          height: 50%;
+          margin: 150px 10%;
+          padding-bottom: 200px;
+      }
+  }
+  
+
+
+
+
 @media screen and (max-width: 850px) {
     .RegForm{
         margin-left: 30%;
+    }
+
+    img{
+        display: none;
     }
 
     #submitButton{
@@ -54,15 +75,23 @@ td:first-child{
     .RegForm{
         margin-left: 20%;
     }
+
+    img{
+        display: none;
+    }
     #submitButton{
         width: 70%;
     }
 }
+
 @media screen and (max-width: 610px) {
     .RegForm{
         margin-left: 10%;
+        
     }
-
+    img{
+        display: none;
+    }
     #submitButton{
         width: 60%;
     }

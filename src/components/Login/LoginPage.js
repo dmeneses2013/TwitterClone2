@@ -89,13 +89,20 @@ class LoginForm extends Component {
 
   render() {
     return(
-      <div className="login-form">
-        <form onSubmit={ this.handleSubmit }>
-          <input placeholder="Email" name='email' required onInput={ this.handleInput }/>
-          <input placeholder="Password" name='password' type="password" required onInput={ this.handleInput } protected="true"/>
-          <input id="submit" type="submit" value="Submit" />
-        </form>
-        <Link to="/register">Or Register</Link>
+      <div>
+            <div id="leftSide">
+              <img src="https://www.emergingedtech.com/wp/wp-content/uploads/2017/09/twitter-117595_960_720.png" alt=""></img>
+            </div>
+            <div className="login-form">
+              
+              <form onSubmit={ this.handleSubmit }>
+              <h1>Login</h1>
+                <input placeholder="Email" name='email' required onInput={ this.handleInput }/>
+                <input placeholder="Password" name='password' type="password" required onInput={ this.handleInput } protected="true"/>
+                <input id="submit" type="submit" value="Submit" />
+              </form>
+              <Link to="/register">Or Register</Link>
+            </div>
       </div>
     );
   }

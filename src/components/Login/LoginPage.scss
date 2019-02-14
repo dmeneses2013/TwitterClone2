@@ -1,12 +1,17 @@
+
 .login-form{
-  margin: 0 auto;
+  margin: 0px;
   width: 600px;
   height: 400px;
-  margin-top: 200px;
-  border: solid red 1px;
+  margin-top: 250px;
+  margin-left: 100px;
+  display: inline-block;
+  
+  h1{
+    text-align: center;
+  }
 
   form {
-    margin-top: 180px;
     margin-bottom: 12px;
   }
 
@@ -15,16 +20,106 @@
     transform: translateX(-50%);
     margin-top: 20px;
     width: 70%;
-    height: 30px;
-    border: solid red 1px;
+    height: 35px;
+    border: solid black 1px;
+    border-radius: 5px;
     font-size: 18px;
   }
 
   #submit {
     width: 40%;
+    color: white;
+    border: 1px solid #227dde;
+    color: #227dde;
   }
+
+  #submit:hover{
+    color: white;
+    background-color: #227dde;
+  }
+  
   a{
     position: relative; left: 43%;
-    border: solid red 1px;
+  }
+}
+
+#leftSide{
+  display: inline-block;
+  width: 40%;
+  height: 40%;
+    
+    img{
+        width: 400px;
+        height: 440px;;
+        margin: 200px 100px;
+    }
+}
+
+
+@media screen and (max-width: 1330px) {
+  .login-form{
+      width: 500px;
+      margin-left: 80px;
+  }
+#leftSide{
+  width: 300px;
+  height: 330px;
+  img{
+    width: 300px;
+    height: 340px;;
+    margin: 200px 80px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
+  .login-form{
+      width: 400px;
+      margin-left: 60px;
+  }
+#leftSide{
+  width: 250px;
+  height: 260px;
+  img{
+    width: 250px;
+    height: 260px;;
+    margin: 200px 70px;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .login-form{
+      width: 300px;
+      margin-left: 40px;
+  }
+#leftSide{
+  width: 200px;
+  height: 220px;
+  img{
+    width: 200px;
+    height: 210px;;
+    margin: 200px 50px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 560px) {
+  .login-form{
+      width: 300px;
+      margin-left: 40px;
+  }
+
+#leftSide{
+  width:0px;
+  height:0px;
+  img{
+    width:0px;
+    height: 0px;;
+    margin: 0px;
+    display: none;
+    }
   }
 }
