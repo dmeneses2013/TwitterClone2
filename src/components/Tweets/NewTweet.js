@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import './NewTweet.scss';
+
+
 
 export default class NewTweet extends Component {
 
@@ -79,13 +84,15 @@ class NewTweetForm extends Component {
 
   render() {
       return (
-        <div className="row">
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" placeholder="Write stuff.." required onInput={this.handleInput}></input>
-                <label>What's happening?</label>
-                <button type="submit"  className="btn right">Tweet</button>
-            </form>
-        </div>
+        <div>
+<Form>
+<Form.Control as="textarea" type="text"  rows="2" cols="40" placeholder="Write stuff.." required onSubmit={this.handleSubmit}>
+      {this.handleInput}
+    </Form.Control><br></br>
+
+  <Button type="submit" ClassName="tweetbut" variant="outline-primary">Tweet</Button>
+</Form>
+</div>
       )
     }
 }

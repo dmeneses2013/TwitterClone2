@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
-import Header from './components/Header';
-import Layout from './components/Layout';
-import Feed from './components/Feed';
+
+
 import Search from './components/Search/Search';
 import UserProfile from './components/UserProfile/UserProfile';
 import LoginPage from './components/Login/LoginPage';
 import Register from './components/Register/RegistrationPage'
 import  { Redirect } from 'react-router-dom';
 import Likes from './components/Likes/Likes';
+import moment from 'moment';
+import PropTypes from 'prop-types';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import JavascriptTimeAgo from 'javascript-time-ago';
+import en from 'javascript-time-ago/locale/en';
+library.add(faHeart);
+
+JavascriptTimeAgo.locale(en);
+
+
+
 
 class ProtectedRoute extends Component {
 
@@ -90,7 +102,7 @@ const Routes = (
       <UsedRoute exact path="/register" component={ Register } />
       <ProtectedRoute exact path="/search" component={ Search } />
       <ProtectedRoute exact path="/users/:id" component={ UserProfile } />
-      <ProtectedRoute exact path="/layout" component={ Layout } />
+
     </div>
   </Router>
 );

@@ -4,6 +4,8 @@ import LogoutButton from '../Login/Logout.js';
 import MainTweet from '../Tweets/MainTweet';
 import NewTweet from '../Tweets/NewTweet';
 import NavBar from '../Navbar';
+import './Home.scss'
+
 
 export default class Search extends Component {
 
@@ -29,6 +31,7 @@ export default class Search extends Component {
     return(
       <div>
         <NavBar />
+        <br></br>
         <MainTweet />
       </div>
     );

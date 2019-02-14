@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Likes from '../Likes/Likes';
-import NewTweet from './NewTweet'
+import NewTweet from './NewTweet';
+import {Media} from 'react-bootstrap';
+import Image from 'react-bootstrap/Image';
+import Card from 'react-bootstrap/Card'
+import './MainTweet.scss';
+
+import ReactTimeAgo from 'react-time-ago';
 
 export default class MainTweet extends React.Component {
     constructor(props) {
@@ -30,6 +36,7 @@ export default class MainTweet extends React.Component {
         return (
            <div className="container">
              <NewTweet />
+             <br></br>
              <TweetList tweets={this.state.tweetList} />
           </div>
         )
@@ -49,17 +56,32 @@ const TweetList = (props) => {
 
 const Tweets = (props) =>  {
     console.log(props)
+
     return (
-        <div>
-        <li className="collection-item image">
-            <a href={'#/users/' + props.user.id}>
-              <img className="circle" src={props.user.image} alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png" />
-            </a>
-            <span className="title">{props.user.firstname}</span>
-            <time>{props.created_at}</time>
-            <p>{props.content}</p>
-            <Likes />
-        </li>
-      </div>
-    )
+
+<div>
+      <Media>
+        <a href={'#/users/' + props.user.id}></a>
+        <Image
+        width={64}
+        height={64}
+        className="mr-3" src={props.user.image} alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png" roundedCircle />
+        <Media.Body>
+          <Card border="dark" style={{ width: '40rem' }}>
+   <Card.Header>
+     <h2>{props.user.firstname}</h2>
+     <h6><ReactTimeAgo date={props.created_at}/></h6>
+   </Card.Header>
+   <Card.Body>
+     <Card.Title></Card.Title>
+     <Card.Text>
+      {props.content}
+      <Likes />
+     </Card.Text>
+   </Card.Body>
+ </Card>
+  </Media.Body>
+  </Media>
+  </div>
+);
 }
