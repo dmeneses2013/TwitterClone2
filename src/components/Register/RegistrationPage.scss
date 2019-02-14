@@ -17,7 +17,7 @@
     input{
         display: inline-block;
         width: 350px;
-        height: 20px;
+        height: 30px;
         padding: 5px;
         margin: 5px;
         border-radius: 5px;
@@ -38,6 +38,7 @@
 td:first-child{
     text-align: right;
 }
+
 
 @media screen and (max-width: 850px) {
     .RegForm{
