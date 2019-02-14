@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './RegistrationPage.scss'
 
 export default class RegistrationPage extends Component {
 
@@ -40,10 +41,7 @@ export default class RegistrationPage extends Component {
 
   render() {
     return(
-      <div>
-        <RegistrationForm onSubmit={this.handleSubmit}/>
-        <h1>Or sign in</h1>
-      </div>
+        <RegistrationForm onSubmit={this.handleSubmit}/>    
     );
   }
 }
@@ -66,13 +64,38 @@ class RegistrationForm extends Component {
 
   render() {
     return(
-      <form onSubmit={ this.handleSubmit }>
-        <input placeholder="Handle" name='handle' required onInput={ this.handleInput }/>
-        <input placeholder="Firstname" name='firstname' required onInput={ this.handleInput }/>
-        <input placeholder="Lastname" name='lastname' required onInput={ this.handleInput }/>
-        <input placeholder="Email" name='email' required onInput={ this.handleInput }/>
-        <input placeholder="Password" name='password' required onInput={ this.handleInput } protected="true"/>
-        <input type="submit" value="Search" />
+      <form className="RegForm" onSubmit={ this.handleSubmit }>
+          <div>
+          <h1>Sign Up</h1>
+          <img src="http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c53e.png" alt=""></img>
+          </div>
+          <table>
+            <tr>
+              <td><label for="handleInput">Username : </label></td>
+              <td><input  id="handleInput" placeholder="Handle" name='handle' required onInput={ this.handleInput }/></td>
+              </tr>
+
+            <tr>
+              <td><label for="firstnameInput">Firstname : </label></td>
+              <td><input id="firstnameInput"  placeholder="Firstname" name='firstname' required onInput={ this.handleInput }/></td>
+            </tr>
+
+            <tr>
+              <td><label for="lastnameInput">Lastname : </label></td>
+              <td><input id="lastnameInput"  placeholder="Lastname" name='lastname' required onInput={ this.handleInput }/></td>
+            </tr>
+
+            <tr>
+              <td><label for="emailInput">Email : </label></td>
+              <td><input id="emailInput"  placeholder="Email" name='email' required onInput={ this.handleInput }/></td>
+            </tr>
+
+            <tr>
+              <td><label for="passwordInput">Password : </label></td>
+              <td><input id="passwordInput"  placeholder="Password" name='password' required onInput={ this.handleInput } protected="true"/></td>
+            </tr>
+          </table>
+        <input  id="submitButton" type="submit" value="Search" />
       </form>
     );
   }
