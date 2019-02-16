@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 
-
-
 class Likes extends Component {
 
   constructor(props){
+
     super(props);
-
+    this.state ={
       likes: [],
-
       updated: false
     }
-this.state ={
-likes: false
-}
     this.updateLikes = this.updateLikes.bind(this);
   }
 
@@ -54,6 +49,5 @@ likes: false
 
 
 }
-
 
 export default Likes;

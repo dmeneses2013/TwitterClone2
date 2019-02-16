@@ -85,9 +85,8 @@ class NewTweetForm extends Component {
   render() {
       return (
         <div>
-<Form>
-<Form.Control as="textarea" type="text"  rows="2" cols="40" placeholder="Write stuff.." required onSubmit={this.handleSubmit}>
-      {this.handleInput}
+<Form required onSubmit={this.handleSubmit}>
+<Form.Control as="textarea" type="text"  rows="2" cols="40" placeholder="Write stuff.." onInput={this.handleInput}>
     </Form.Control><br></br>
 
   <Button type="submit" ClassName="tweetbut" variant="outline-primary">Tweet</Button>

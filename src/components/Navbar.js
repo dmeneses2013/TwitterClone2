@@ -23,7 +23,14 @@ export default class NavBar extends Component {
   render() {
       return (
         <Navbar bg="primary" variant="dark">
-          <Navbar.Brand href="#/">Fake Twitter</Navbar.Brand>
+          <Navbar.Brand href="#/">
+
+              <img
+                width={64}
+                height={64}
+                src="https://storyofstuff.org/wp-content/themes/stuff/img/twitter.png" alt=""></img>
+              Fake Twitter
+          </Navbar.Brand>
           <Nav className="mr-auto">
           <Form onSubmit={this.goToSearch} inline className={"center"}>
             <FormControl type="text" name='query' placeholder="Search" className="mr-sm-2" onInput={ this.handleInput } required/>

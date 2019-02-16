@@ -83,11 +83,13 @@ const SearchResult = (props) => {
   return (
    <a href={'#/users/' + props.results.id}>
     <div className="search-results" onClick={props.onClick}>
+      
       <h1>{props.results.handle}</h1>
       <h2>{props.results.firstname} {props.results.lastname}</h2>
       <img src={props.results.image} alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png"></img>
-      <h4> {props.results.profile}</h4>
-      <h1>Hi</h1>
+
+      <br></br>
+        <h4> {props.results.profile}</h4>
      </div>
     </a>
     )

@@ -6,7 +6,6 @@ import {Media} from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card'
 import './MainTweet.scss';
-
 import ReactTimeAgo from 'react-time-ago';
 
 export default class MainTweet extends React.Component {
@@ -61,16 +60,17 @@ const Tweets = (props) =>  {
 
 <div>
       <Media>
-        <a href={'#/users/' + props.user.id}></a>
+        <a href={'#/users/' + props.user.id}>
         <Image
         width={64}
         height={64}
         className="mr-3" src={props.user.image} alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png" roundedCircle />
+    </a>
         <Media.Body>
           <Card border="dark" style={{ width: '40rem' }}>
    <Card.Header>
      <h2>{props.user.firstname}</h2>
-     <h6><ReactTimeAgo date={props.created_at}/></h6>
+     <h6><ReactTimeAgo dateTime={props.created_at}/></h6>
    </Card.Header>
    <Card.Body>
      <Card.Title></Card.Title>

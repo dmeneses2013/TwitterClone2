@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import NavBar from '../Navbar';
+import {Media} from 'react-bootstrap';
+import Image from 'react-bootstrap/Image';
+import Card from 'react-bootstrap/Card';
+import ReactTimeAgo from 'react-time-ago';
+import Likes from '../Likes/Likes';
 
 export default class UserProfile extends Component {
 
@@ -44,10 +49,14 @@ export default class UserProfile extends Component {
         <div>
           <h1>User Profile</h1>
           <h2>{this.state.user.firstname} {this.state.user.lastname}</h2>
-          <img src={this.state.user.image} alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png"></img>
+          <img
+            width={400}
+            height={400}
+
+            src={this.state.user.image} alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png"></img>
         </div>
         <div>
-          <TweetList tweets={this.state.user.tweets} />
+          <TweetList tweets={this.state.user.tweets} user={this.state.user} />
         </div>
       </div>
     </div>
@@ -57,7 +66,8 @@ export default class UserProfile extends Component {
 
 const TweetList = (props) => {
     if (props.tweets === undefined) {return <div> No tweets eh</div>}
-    let tweets = props.tweets.slice(0).reverse().map(tweet => <Tweets key={tweet.id} {...tweet} />);
+    let user = props.user
+    let tweets = props.tweets.slice(0).reverse().map(tweet => <Tweets key={tweet.id} user={user} {...tweet} />);
     return (
        <div>
          <ul className="collection">
@@ -66,15 +76,36 @@ const TweetList = (props) => {
        </div>
     )
 }
-
 const Tweets = (props) =>  {
     console.log(props)
     return (
-        <li className="collection-item image">
-            <img className="circle" src="https://developer.cdn.mozilla.net/media/img/mdn-logo-sm.png" alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png" />
-              <span className="title">{props.firstname}</span>
-            <time>{props.tweets}</time>
-            <p>{props.content}</p>
-        </li>
+
+      <div>
+            <Media>
+
+              <Image
+              width={64}
+              height={64}
+              className="mr-3" src={props.user.image} alt="https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png" roundedCircle />
+
+              <Media.Body>
+                <Card border="dark" style={{ width: '40rem' }}>
+         <Card.Header>
+           <h2>{props.user.firstname}</h2>
+           <h6><ReactTimeAgo date={props.created_at}/></h6>
+         </Card.Header>
+         <Card.Body>
+           <Card.Title></Card.Title>
+           <Card.Text>
+            {props.content}
+            <Likes />
+           </Card.Text>
+         </Card.Body>
+       </Card>
+        </Media.Body>
+        </Media>
+        </div>
+
+
     )
-}
+ }
